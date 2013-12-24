@@ -24,9 +24,11 @@ Usage
 -----
 
 Surround the text you want to send off to Twitter with _* and *_.
+
     git commit -m 'Initial commit _*Starting a cool new project!*_'
 
 Send multiple Tweets.
+
     Add parallel impedances
     
     Parallel impedances are needed for basic circuit simplification. The
