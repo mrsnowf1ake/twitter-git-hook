@@ -28,14 +28,14 @@ Surround the text you want to send off to Twitter with _* and *_.
 
 Send multiple Tweets.
     Add parallel impedances
-
+    
     Parallel impedances are needed for basic circuit simplification. The
     implementation takes the reciprocal of the sum of reciprocals of
     individual impedances, eg:
         z_total = (z1^-1 + z2^-1 + ... + zn^-1)^-1
-    _\*You'll be able to simplify linear circuits completely with the next release!\*_
+    _*You'll be able to simplify linear circuits completely with the next release!*_
     The feature is in: CircAnal.simplify_parallel(args)
-    _\*Release candidate tonight :)\*_
+    _*Release candidate tonight :)*_
 
 Tweets that are too long are automatically split up into multiple.
 
