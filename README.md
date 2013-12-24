@@ -59,4 +59,5 @@ http://yoursite.com/getauthorization.php
 registration of the application. The `keys.php` file should be placed in a
 location outside of the root domain. Modify the `require_once` calls in
 `index.php` and `sendtweet.php` to reflect the new location of `keys.php`.
+* Change `uri` in hook/post-commit to reflect your site.
 * Pray it runs :P
