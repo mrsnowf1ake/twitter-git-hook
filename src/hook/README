@@ -1,0 +1,21 @@
+http://git-hook.mrsnowf1ake.com
+
+The hook is under the MIT license
+
+===== How to use this software =====
+
+Make sure you have Ruby installed
+Place post-commit and twitter-conf.yaml in your project's .git/hooks/ directory.
+Make post-commit executable by running chmod +x post-commit
+
+Surround content you want submitted to Twitter with _* and *_
+eg:
+        Initial commit _*Working on a cool project!*_
+
+If the message is too long, it will automatically be split into multiple posts.
+
+In addition, multiple messages can be posted by having multiple _* *_ clauses:
+        Initial _*First post*_ commit _*Second post*_
+
+
+Since this is an experiment, the tag #githook is added to any post.

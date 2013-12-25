@@ -1,0 +1,15 @@
+body {
+    background-color: gray;
+}
+
+.container {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    background-color: white;
+}
+
+pre {
+    padding: 3px;
+}

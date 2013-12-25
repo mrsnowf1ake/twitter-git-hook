@@ -1,0 +1,22 @@
+#! /usr/bin/env ruby
+#
+# This hook is public domain (view the LICENSE file)
+#
+#
+
+require 'yaml'
+require 'net/http'
+
+dir = File.dirname __FILE__
+config = YAML.load_file(File.join(dir,'twitter-conf.yaml'))
+uri = URI 'http://git-hook.mrsnowf1ake.com/sendtweet.php'
+token = config[:token]
+token_secret = config[:token_secret]
+commit = `git log -1 HEAD --format=format:%s%n%b`
+commit.scan(/_\*([^\*]*)\*_/).each do |message|
+  puts "sending message: #{message}"
+  response = Net::HTTP.post_form uri, token: token,
+                                      token_secret: token_secret,
+                                      message: message
+  puts response.body
+end
