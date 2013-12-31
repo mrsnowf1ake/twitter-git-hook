@@ -1,5 +1,5 @@
-body {
-    background-color: gray;
+h1, h2 {
+    font-family: 'Abel', sans-serif;
 }
 
 .container {
@@ -7,9 +7,16 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 50px;
-    background-color: white;
+    font-size: 18px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 pre {
     padding: 3px;
+    font-size: 14px;
 }

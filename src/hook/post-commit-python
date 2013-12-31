@@ -1,0 +1,32 @@
+#! /usr/bin/env python3
+#
+# This hook is public domain (view the LICENSE file)
+#
+#
+
+import os, subprocess
+import re
+import http.client, urllib.parse
+
+scriptpath = os.path.abspath(__file__)
+yamlpath = os.path.join(os.path.dirname(scriptpath),'twitter-conf.yaml')
+f = open(yamlpath, 'r')
+config = f.read()
+token = re.search('(?<=:token: ).*(?=\n)', config).group(0)
+token_secret = re.search('(?<=:token_secret: ).*', config).group(0)
+commit = subprocess.check_output(['git','log','-1','HEAD','--format=format:%s%n%b'])
+messages = re.findall('_\*([^\*]*)\*_', commit.decode('utf-8'))
+
+conn = http.client.HTTPConnection('git-hook.mrsnowf1ake.com')
+headers = {'Content-type': 'application/x-www-form-urlencoded',
+           'Accept': 'text/plain'}
+for message in messages:
+    print("sending message:", message)
+    params = urllib.parse.urlencode({'token': token,
+                                     'token_secret': token_secret,
+                                     'message': message})
+    conn.request('POST', '/sendtweet.php', params, headers)
+    response = conn.getresponse()
+    print(response.status)
+    print(response.read())
+conn.close()
